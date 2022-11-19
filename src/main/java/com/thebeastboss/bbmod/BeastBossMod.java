@@ -1,6 +1,8 @@
 package com.thebeastboss.bbmod;
 
 import com.mojang.logging.LogUtils;
+import com.thebeastboss.bbmod.block.ModBlocks;
+import com.thebeastboss.bbmod.item.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,6 +23,8 @@ public class BeastBossMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
+        ModItems.register(modEventBus);
+        ModBlocks.resister(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
